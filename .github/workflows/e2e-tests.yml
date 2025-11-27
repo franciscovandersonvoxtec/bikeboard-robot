@@ -34,8 +34,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt  
     
+    - name: Browser Lib Init (chromium / firefox)
+      run: rfbrowser init
+      if: github.event.imputs.browsers != 'webkit'
+
     - name: Browser Lib Init
-      run: rfbrowser init --with-deps
+      run: rfbrowser init --with-deps (webkit)
+      if: github.event.imputs.browsers == 'webkit'
 
     - name: Run WebApp
       run: npm start &
