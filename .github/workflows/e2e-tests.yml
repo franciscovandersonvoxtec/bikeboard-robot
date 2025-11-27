@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
-    - name: Cheeckout Code 
+    - name: Checkout Code 
       uses: actions/checkout@v5
 
     - name: Set up Node
@@ -36,7 +36,7 @@ jobs:
     - name: Run WebApp
       run: npm start &
       env:
-        CI true
+        CI: true
 
     - name: Wait for WebApp
       run: npx wait-on http://localhost:3000 --timeout=60000
